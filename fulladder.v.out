@@ -1,0 +1,40 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001e3080365d0 .scope module, "fulladder" "fulladder" 2 1;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "sum";
+    .port_info 1 /OUTPUT 1 "cout";
+    .port_info 2 /INPUT 1 "x";
+    .port_info 3 /INPUT 1 "y";
+    .port_info 4 /INPUT 1 "cin";
+o000001e308087128 .functor BUFZ 1, C4<z>; HiZ drive
+o000001e308087158 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001e30803d340 .functor XOR 1, o000001e308087128, o000001e308087158, C4<0>, C4<0>;
+o000001e308086fd8 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001e30803e320 .functor XOR 1, L_000001e30803d340, o000001e308086fd8, C4<0>, C4<0>;
+L_000001e30803e4d0 .functor AND 1, o000001e308087128, o000001e308087158, C4<1>, C4<1>;
+L_000001e30803e7b0 .functor AND 1, L_000001e30803d340, o000001e308086fd8, C4<1>, C4<1>;
+L_000001e30803ea90 .functor OR 1, L_000001e30803e7b0, L_000001e30803e4d0, C4<0>, C4<0>;
+v000001e30803e9f0_0 .net "cin", 0 0, o000001e308086fd8;  0 drivers
+v000001e30803e710_0 .net "cout", 0 0, L_000001e30803ea90;  1 drivers
+v000001e30803e430_0 .net "sum", 0 0, L_000001e30803e320;  1 drivers
+v000001e30803e280 .array "w", 0 3;
+v000001e30803e280_0 .net v000001e30803e280 0, 0 0, L_000001e30803d340; 1 drivers
+v000001e30803e280_1 .net v000001e30803e280 1, 0 0, L_000001e30803e4d0; 1 drivers
+v000001e30803e280_2 .net v000001e30803e280 2, 0 0, L_000001e30803e7b0; 1 drivers
+o000001e3080870f8 .functor BUFZ 1, C4<z>; HiZ drive
+v000001e30803e280_3 .net v000001e30803e280 3, 0 0, o000001e3080870f8; 0 drivers
+v000001e30803d2a0_0 .net "x", 0 0, o000001e308087128;  0 drivers
+v000001e30803ee80_0 .net "y", 0 0, o000001e308087158;  0 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "fulladder.v";

@@ -1,0 +1,25 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001b688722720 .scope module, "SUB" "SUB" 2 1;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 16 "dout";
+    .port_info 1 /INPUT 16 "din1";
+    .port_info 2 /INPUT 16 "din2";
+o000001b688756a88 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000001b6887228b0_0 .net "din1", 15 0, o000001b688756a88;  0 drivers
+o000001b688756ab8 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v000001b688722950_0 .net "din2", 15 0, o000001b688756ab8;  0 drivers
+v000001b6887229f0_0 .net "dout", 15 0, L_000001b688722a90;  1 drivers
+L_000001b688722a90 .arith/sub 16, o000001b688756a88, o000001b688756ab8;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "SUB.v";
